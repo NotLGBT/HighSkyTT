@@ -1,15 +1,36 @@
-# HighSkyTT
+# Project Overview
 
+This repository demonstrates a daemon-like workflow for launching and refreshing jobs at specified time intervals. It includes scripts and components to simulate workloads and manage job queues effectively.
 
-What's inside 
+## Directory Structure
 
-./script.sh - Demo version of possible daemon - launching and refreshing jobs by time intervals, which spotted reviewing output.csv file
-./programs/prog1/app.py - Flask application, simulating programs workload by using difference json and ports args. 
-./file.csv - Sample from Technical Task originally provided by HR manager 
-./prog.py - Primary Script used for creation valid queue of jobs for launching
+- **`./script.sh`**  
+  A demo script simulating a possible daemon process:  
+  - Launches and refreshes jobs at predefined intervals.  
+  - Reviews and processes the `output.csv` file to determine job configurations.
 
+- **`./programs/prog1/app.py`**  
+  A Flask-based application simulating workloads:  
+  - Accepts JSON and port arguments to configure and run jobs.  
+  - Provides endpoints for health checks and workload simulation.
 
-Example of request to app.py
+- **`./file.csv`**  
+  A sample CSV file provided as part of the technical task from the HR manager:  
+  - Used to generate and configure job queues.
+
+- **`./prog.py`**  
+  The primary script for creating a valid queue of jobs:  
+  - Parses `file.csv` and prepares configurations for `app.py`.
+
+---
+
+## Example Usage
+
+### Running `app.py`
+
+To launch the Flask application with specific configurations:
+
+```bash
 python3 /home/lancelot/Python/Counter/programs/prog1/app.py '{
     "name": "program1",
     "password": "password1",
@@ -18,4 +39,4 @@ python3 /home/lancelot/Python/Counter/programs/prog1/app.py '{
     "duration": "5.0",
     "rand_duration": "1.5",
     "ident": "666666"
-  }' "5010" 
+}' "5010"
